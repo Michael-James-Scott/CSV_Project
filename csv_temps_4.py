@@ -22,6 +22,7 @@ for row in csv_file:
         high = int(row[4])
         low = int(row[5])
         current_date=datetime.strptime(row[2], '%Y-%m-%d')
+        title = str(row[1])
     except ValueError:
         print(f"Missing data for {current_date}")
     else: 
@@ -34,7 +35,7 @@ plt.plot(dates, highs, color="red", alpha = 0.5)
 plt.plot(dates, lows,color="blue", alpha = 0.5)
 current_date=datetime.strptime(row[2], '%Y-%m-%d')
 plt.fill_between(dates,highs,lows,facecolor="purple", alpha = 0.25)
-plt.title("daily high temps for death valley 2018", fontsize = 12)
+plt.title(title, fontsize = 12)
 plt.xlabel("Dates",fontsize=12)
 plt.ylabel("Temperature (F)",fontsize=12)
 plt.tick_params(axis='both', which = "major", labelsize=12)
